@@ -1,0 +1,46 @@
+---
+title: "Data Manipulations notes"
+author: "AW"
+date: "10/9/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+```{r}
+tibble(dvst) # will show me the equivalent of head, with what kind of variable each column has. 
+View(dvst) # will open he file in a viewer. 
+colnames(dvst)[12] <- "percent.GC"
+
+dvst[1:10]
+
+filter(dvst,`total SNPs` >= 85)
+filter(dvst, Pi > 16, percent.GC > 80)
+(new_df <- filter(dvst, Pi > 16, percent.GC > 80))
+view(new_df)
+
+```
+
+```{r}
+summary(dvst$`percent.GC`)
+filter(dvst, `percent.GC` == min(percent.GC))
+
+filter(dvst,`total SNPs` == 0)
+filter(dvst,`reference Bases` < 1000)
+summary(dvst$`Divergence`)
+filter(dvst,`Divergence` <= 0.99)
+filter(dvst, Divergence == max(Divergence))
+summary(dvst$`percent.GC`)
+```
+
+
+```{r}
+####   %in% c(0,1,2)) <- use this to subset the fang dataset, where 0,1,2 are the letter strings for the genotypes we're interested in. 
+filter(dvst, `total SNPs` %in% c(0,1,2))
+
+```
+
+

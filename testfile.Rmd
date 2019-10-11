@@ -30,3 +30,27 @@ plot(pressure)
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
 
 this is a change
+
+
+```{r}
+all.equal(1+ 2, 3)
+
+
+x<- 0.5
+x
+y[10] <- 3
+y
+2^(1:5)
+
+x <- 1:6
+2^x
+
+x+ 1:10
+rm(x)
+
+sessionInfo()
+
+
+
+```
+

@@ -1,0 +1,29 @@
+---
+title: "R_assignment"
+author: "AW"
+date: "10/9/2019"
+output: html_document
+---
+
+
+```{r}
+fang2 <- read_tsv("https://raw.githubusercontent.com/EEOB-BioData/BCB546X-Fall2019/master/assignments/UNIX_Assignment/fang_et_al_genotypes.txt")
+
+filter(fang2, Group == "ZMMMR") # this one works. build on this. 
+
+(maizefang <-filter(fang2, Group %in% c("ZMMIL", "ZMMLR", "ZMMMR")))
+(teosintefang <-filter(fang2, Group %in% c("ZMPBA", "ZMPIL", "ZMPJA")))
+
+
+
+transposedmaize <- t(maizefang)
+write.csv(transposedmaize)
+colnames(transposedmaize) = transposedmaize[1, ]
+transposedmaize = transposedmaize[-1, ]
+transposedteosinte <- t(teosintefang)
+
+snp_position <- read_tsv("https://raw.githubusercontent.com/EEOB-BioData/BCB546X-Fall2019/master/assignments/UNIX_Assignment/snp_position.txt")
+
+
+```
+
